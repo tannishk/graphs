@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+typedef struct node node;
+node b[10];
+
+void create(int n)
+{
+int choice=1;
+	for(int i=0;i<n;i++)
+	{
+		scanf("%d",&b[i].data);
+		b[i].next=NULL;
+	}
+	for(int i=0;i<n;i++)
+	{
+	node *t=&b[i];
+	int data;
+	printf("Does vertice %d have any edge\n" ,b[i].data);
+		scanf("%d",&choice);
+		while(choice==1)
+		{
+		node *temp=(node *)malloc(sizeof(struct node));
+		printf("Enter the terminal point");
+		scanf("%d",&data);
+		temp->data=data;
+		temp->next=NULL;
+		t->next=temp;
+		t=temp;
+		printf("More Edges ???");
+		scanf("%d",&choice);
+		}
+	}
+}
+int main()
+{
+	create(5);
+}
